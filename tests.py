@@ -26,12 +26,17 @@ class TestBooksCollector:
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
 
-    @pytest.mark.parametrize('name', ['', 'Что делать, если ваш кот хочет вас убить?',
-                                      'Что делать, если ваш кот хочет вас убить!?'])
+    @pytest.mark.parametrize('name', ['', 'Что делать, если ваш кот хочет вас убить?'])
     def test_add_new_book_incorrect_len_name_no_add(self, name):
         collector = BooksCollector()
         collector.add_new_book(name)
         assert collector.get_books_genre() == {}
+
+    @pytest.mark.parametrize('name', ['А', 'Что делать, если ваш кот хочет вас убить'])
+    def test_add_new_book_correct_len_name(self, name):
+        collector = BooksCollector()
+        collector.add_new_book(name)
+        assert name in collector.get_books_genre()
 
     def test_add_new_book_no_duplicate_book(self):
         collector = BooksCollector()
