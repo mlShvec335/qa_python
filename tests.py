@@ -88,7 +88,7 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
         collector.add_book_in_favorites('Гордость и предубеждение и зомби')
-        assert 'Гордость и предубеждение и зомби' in collector.favorites
+        assert 'Гордость и предубеждение и зомби' in collector.get_list_of_favorites_books()
 
     def test_add_book_in_favorites_no_duplicate_favorites(self):
         collector = BooksCollector()
