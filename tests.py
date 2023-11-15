@@ -38,6 +38,7 @@ class TestBooksCollector:
         collector.add_new_book(name)
         assert name in collector.get_books_genre()
 
+    """Одну и ту же книгу нельзя добавить дважды"""
     def test_add_new_book_no_duplicate_book(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
