@@ -63,6 +63,8 @@ class TestBooksCollector:
         collector.set_book_genre('Гордость и предубеждение и зомби', 'Ужасы')
         collector.add_new_book('Сияние')
         collector.set_book_genre('Сияние', 'Ужасы')
+        collector.add_new_book('Звездный десант')
+        collector.set_book_genre('Звездный десант', 'Фантастика')
         assert collector.get_books_with_specific_genre('Ужасы') == ['Гордость и предубеждение и зомби', 'Сияние']
 
     def test_get_books_genre(self):
