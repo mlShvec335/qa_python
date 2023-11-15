@@ -39,6 +39,7 @@ class TestBooksCollector:
         assert name in collector.get_books_genre()
 
     """Одну и ту же книгу нельзя добавить дважды"""
+
     def test_add_new_book_no_duplicate_book(self):
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
@@ -67,11 +68,15 @@ class TestBooksCollector:
         collector.set_book_genre('Звездный десант', 'Фантастика')
         assert collector.get_books_with_specific_genre('Ужасы') == ['Гордость и предубеждение и зомби', 'Сияние']
 
-    def test_get_books_for_children(self):
+    @pytest.mark.parametrize('book,genre', [['Хроники Нарнии', 'Фантастика'],
+                                            ['Чебурашка', 'Мультфильмы'],
+                                            ['Огромный крокодил', 'Комедии'],
+                                            ])
+    def test_get_books_for_children(self, book, genre):
         collector = BooksCollector()
-        collector.add_new_book('Чебурашка')
-        collector.set_book_genre('Чебурашка', 'Мультфильмы')
-        assert collector.get_books_for_children() == ['Чебурашка']
+        collector.add_new_book(book)
+        collector.set_book_genre(book, genre)
+        assert book in collector.get_books_for_children()
 
     def test_get_books_for_children_adult_genre_no_add(self):
         collector = BooksCollector()
