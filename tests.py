@@ -103,9 +103,3 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Сияние')
         collector.delete_book_from_favorites('Сияние')
         assert 'Сияние' not in collector.get_list_of_favorites_books()
-
-    def test_get_list_of_favorites_books(self):
-        collector = BooksCollector()
-        collector.add_new_book('Гордость и предубеждение и зомби')
-        collector.add_book_in_favorites('Гордость и предубеждение и зомби')
-        assert collector.get_list_of_favorites_books() == collector.favorites

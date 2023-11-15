@@ -14,4 +14,3 @@
 10) test_add_book_in_favorites - проверка добавления книги в избранное
 11) test_add_book_in_favorites_no_duplicate_favorites - книги не дублируются в избранном
 12) test_delete_book_from_favorites - удаление книги из избранного
-13) test_get_list_of_favorites_books - добавление избранной книги в список favorites
